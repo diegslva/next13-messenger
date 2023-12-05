@@ -14,7 +14,8 @@ const getMessages = async (
       },
       orderBy: {
         createdAt: 'asc'
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     return messages;

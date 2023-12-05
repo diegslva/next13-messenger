@@ -36,6 +36,7 @@ export async function POST(
         },
         users: true,
       },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     if (!conversation) {
@@ -54,6 +55,7 @@ export async function POST(
       where: {
         id: lastMessage.id
       },
+      
       include: {
         sender: true,
         seen: true,
@@ -64,7 +66,9 @@ export async function POST(
             id: currentUser.id
           }
         }
-      }
+      },
+      
+      
     });
 
     // Update all connections with new seen

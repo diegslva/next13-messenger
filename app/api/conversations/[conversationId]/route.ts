@@ -26,7 +26,8 @@ export async function DELETE(
       },
       include: {
         users: true
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     if (!existingConversation) {
@@ -40,6 +41,7 @@ export async function DELETE(
           hasSome: [currentUser.id]
         },
       },
+      
     });
 
     existingConversation.users.forEach((user) => {

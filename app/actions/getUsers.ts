@@ -17,7 +17,8 @@ const getUsers = async () => {
         NOT: {
           email: session.user.email
         }
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     return users;

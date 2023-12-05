@@ -26,9 +26,10 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         md:w-11
       ">
         <Image
-          fill
           src={user?.image || '/images/placeholder.jpg'}
           alt="Avatar"
+          width={100}
+          height={100}
         />
       </div>
       {isActive ? (

@@ -43,7 +43,7 @@ export async function POST(
         },
         include: {
           users: true,
-        }
+        },
       });
 
        // Update all connections with new conversation
@@ -70,7 +70,8 @@ export async function POST(
             }
           }
         ]
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     const singleConversation = existingConversations[0];
@@ -94,7 +95,8 @@ export async function POST(
       },
       include: {
         users: true
-      }
+      },
+      
     });
 
     // Update all connections with new conversation

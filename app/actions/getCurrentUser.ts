@@ -12,7 +12,8 @@ const getCurrentUser = async () => {
     const currentUser = await prisma.user.findUnique({
       where: {
         email: session.user.email as string
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     if (!currentUser) {

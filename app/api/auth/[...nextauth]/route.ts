@@ -6,9 +6,14 @@ import GoogleProvider from "next-auth/providers/google"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 
 import prisma from "@/app/libs/prismadb"
+import { PrismaClient } from "@prisma/client/scripts/default-index"
+
+
+var primaA: ReturnType<typeof PrismaClient>
+primaA = prisma
 
 export const authOptions: AuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(primaA),
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -32,7 +37,8 @@ export const authOptions: AuthOptions = {
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email
-          }
+          },
+          cacheStrategy: { swr: 60, ttl: 60 },
         });
 
         if (!user || !user?.hashedPassword) {

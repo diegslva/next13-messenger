@@ -26,7 +26,8 @@ const getConversations = async () => {
             seen: true,
           }
         },
-      }
+      },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     return conversations;

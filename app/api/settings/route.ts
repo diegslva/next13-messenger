@@ -26,6 +26,7 @@ export async function POST(
         image: image,
         name: name
       },
+      
     });
 
     return NextResponse.json(updatedUser)

@@ -39,7 +39,8 @@ export async function POST(
             id: currentUser.id
           }
         },
-      }
+      },
+      
     });
 
     
@@ -47,6 +48,7 @@ export async function POST(
       where: {
         id: conversationId
       },
+      
       data: {
         lastMessageAt: new Date(),
         messages: {

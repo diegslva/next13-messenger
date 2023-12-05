@@ -18,6 +18,7 @@ const getConversationById = async (
       include: {
         users: true,
       },
+      cacheStrategy: { swr: 60, ttl: 60 },
     });
 
     return conversation;
