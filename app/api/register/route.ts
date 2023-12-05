@@ -20,7 +20,8 @@ export async function POST(
       email,
       name,
       hashedPassword
-    }
+    },
+    
   });
 
   return NextResponse.json(user);

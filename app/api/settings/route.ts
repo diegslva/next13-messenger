@@ -15,7 +15,7 @@ export async function POST(
     } = body;
 
     if (!currentUser?.id) {
-      return new NextResponse('Unauthorized', { status: 401 });
+      return new NextResponse('Não autorizado', { status: 401 });
     }
 
     const updatedUser = await prisma.user.update({
@@ -31,6 +31,6 @@ export async function POST(
     return NextResponse.json(updatedUser)
   } catch (error) {
     console.log(error, 'ERROR_MESSAGES')
-    return new NextResponse('Error', { status: 500 });
+    return new NextResponse('Erro', { status: 500 });
   }
 }

@@ -77,10 +77,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 text-gray-900
               "
             >
-              Profile
+              Perfil
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
-              Edit your public information.
+              Edite suas informações públicas.
             </p>
 
             <div className="mt-10 flex flex-col gap-y-8">
@@ -103,7 +103,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     text-gray-900
                   "
                 >
-                  Photo
+                  Foto
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
                   <Image
@@ -114,7 +114,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     alt="Avatar"
                   />
                   <CldUploadButton 
-                  
+                    
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
                     uploadPreset="pgc9ehd5"
@@ -124,7 +124,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                       secondary
                       type="button"
                     >
-                      Change
+                      Mudar
                     </Button>
                   </CldUploadButton>
                 </div>
@@ -147,13 +147,13 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             secondary 
             onClick={onClose}
           >
-            Cancel
+            Cancelar
           </Button>
           <Button 
             disabled={isLoading}
             type="submit"
           >
-            Save
+            Salvar
           </Button>
         </div>
       </form>

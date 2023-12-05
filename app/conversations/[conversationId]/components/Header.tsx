@@ -27,10 +27,10 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const isActive = members.indexOf(otherUser?.email!) !== -1;
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
-      return `${conversation.users.length} members`;
+      return `${conversation.users.length} membros`;
     }
 
-    return isActive ? 'Active' : 'Offline'
+    return isActive ? 'Ativo' : 'Desconectado'
   }, [conversation, isActive]);
 
   return (

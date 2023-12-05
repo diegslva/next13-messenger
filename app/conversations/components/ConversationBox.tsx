@@ -4,6 +4,7 @@ import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Conversation, Message, User } from "@prisma/client";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
 
@@ -55,14 +56,14 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
 
   const lastMessageText = useMemo(() => {
     if (lastMessage?.image) {
-      return 'Sent an image';
+      return 'Enviou uma imagem';
     }
 
     if (lastMessage?.body) {
       return lastMessage?.body
     }
 
-    return 'Started a conversation';
+    return 'Iniciou uma conversa';
   }, [lastMessage]);
 
   return ( 
@@ -103,7 +104,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
                   font-light
                 "
               >
-                {format(new Date(lastMessage.createdAt), 'p')}
+                {format(new Date(lastMessage.createdAt), 'p', { locale: ptBR })}
               </p>
             )}
           </div>

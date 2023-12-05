@@ -5,6 +5,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { IoClose, IoTrash } from 'react-icons/io5'
 import { Conversation, User } from '@prisma/client';
 import { format } from 'date-fns';
+import { ptBR } from "date-fns/locale";
 
 import useOtherUser from '@/app/hooks/useOtherUser';
 import useActiveList from '@/app/hooks/useActiveList';
@@ -30,7 +31,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   const otherUser = useOtherUser(data);
   
   const joinedDate = useMemo(() => {
-    return format(new Date(otherUser.createdAt), 'PP');
+    return format(new Date(otherUser.createdAt), 'PP', { locale: ptBR });
   }, [otherUser.createdAt]);
   
   const title = useMemo(() => {
@@ -45,7 +46,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
       return `${data.users.length} members`;
     }
 
-    return isActive ? 'Active' : 'Offline'
+    return isActive ? 'Ativo' : 'Desconectado'
   }, [data, isActive]);
 
   return (
@@ -90,7 +91,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                               className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                               onClick={onClose}
                             >
-                              <span className="sr-only">Close panel</span>
+                              <span className="sr-only">Fechar Painel</span>
                               <IoClose size={24} aria-hidden="true" />
                             </button>
                           </div>
@@ -113,7 +114,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 <IoTrash size={20} />
                               </div>
                               <div className="text-sm font-light text-neutral-600">
-                                Delete
+                                Deletar
                               </div>
                             </div>
                           </div>
@@ -182,7 +183,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                     sm:flex-shrink-0
                                   "
                                 >
-                                  Joined
+                                  Entrou
                                 </dt>
                                 <dd 
                                   className="

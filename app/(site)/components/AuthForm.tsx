@@ -59,14 +59,14 @@ const AuthForm = () => {
       }))
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Credenciais inválidas!');
         }
 
         if (callback?.ok) {
           router.push('/conversations')
         }
       })
-      .catch(() => toast.error('Something went wrong!'))
+      .catch(() => toast.error('Algo deu errado!'))
       .finally(() => setIsLoading(false))
     }
 
@@ -77,7 +77,7 @@ const AuthForm = () => {
       })
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Credenciais inválidas!');
         }
 
         if (callback?.ok) {
@@ -94,7 +94,7 @@ const AuthForm = () => {
     signIn(action, { redirect: false })
       .then((callback) => {
         if (callback?.error) {
-          toast.error('Invalid credentials!');
+          toast.error('Credenciais inválidas!');
         }
 
         if (callback?.ok) {
@@ -127,7 +127,7 @@ const AuthForm = () => {
               errors={errors}
               required
               id="name" 
-              label="Name"
+              label="Nome"
             />
           )}
           <Input 
@@ -136,7 +136,7 @@ const AuthForm = () => {
             errors={errors}
             required
             id="email" 
-            label="Email address" 
+            label="Email" 
             type="email"
           />
           <Input 
@@ -145,12 +145,12 @@ const AuthForm = () => {
             errors={errors}
             required
             id="password" 
-            label="Password" 
+            label="Senha" 
             type="password"
           />
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
-              {variant === 'LOGIN' ? 'Sign in' : 'Register'}
+              {variant === 'LOGIN' ? 'Entrar' : 'Register'}
             </Button>
           </div>
         </form>
@@ -169,7 +169,7 @@ const AuthForm = () => {
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="bg-white px-2 text-gray-500">
-                Or continue with
+                Ou continue com
               </span>
             </div>
           </div>
@@ -197,13 +197,13 @@ const AuthForm = () => {
           "
         >
           <div>
-            {variant === 'LOGIN' ? 'New to Messenger?' : 'Already have an account?'} 
+            {variant === 'LOGIN' ? 'Novo no Messenger?' : 'Já tem uma conta?'} 
           </div>
           <div 
             onClick={toggleVariant} 
             className="underline cursor-pointer"
           >
-            {variant === 'LOGIN' ? 'Create an account' : 'Login'}
+            {variant === 'LOGIN' ? 'Crie a sua conta aqui' : 'Login'}
           </div>
         </div>
       </div>

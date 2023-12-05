@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
 
@@ -49,7 +50,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
             {data.sender.name}
           </div>
           <div className="text-xs text-gray-400">
-            {format(new Date(data.createdAt), 'p')}
+            {format(new Date(data.createdAt), 'p', { locale: ptBR })}
           </div>
         </div>
         <div className={message}>
@@ -81,7 +82,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
             text-gray-500
             "
           >
-            {`Seen by ${seenList}`}
+            {`Visto por ${seenList}`}
           </div>
         )}
       </div>
