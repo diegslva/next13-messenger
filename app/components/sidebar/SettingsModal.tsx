@@ -40,7 +40,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   } = useForm<FieldValues>({
     defaultValues: {
       name: currentUser?.name,
-      image: currentUser?.image
+      image: currentUser?.image,
     }
   });
 
@@ -114,6 +114,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     alt="Avatar"
                   />
                   <CldUploadButton 
+                  
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
                     uploadPreset="pgc9ehd5"
