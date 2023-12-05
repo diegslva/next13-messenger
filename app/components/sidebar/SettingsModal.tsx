@@ -86,7 +86,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="mt-10 flex flex-col gap-y-8">
               <Input
                 disabled={isLoading}
-                label="Name" 
+                label="Nome" 
                 id="name" 
                 errors={errors} 
                 required 
@@ -114,19 +114,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     alt="Avatar"
                   />
                   <CldUploadButton 
-                    
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
                     uploadPreset="pgc9ehd5"
                   >
-                    <Button
+                     <Button
                       disabled={isLoading}
                       secondary
                       type="button"
                     >
-                      Mudar
+                      Alterar
                     </Button>
                   </CldUploadButton>
+                 
                 </div>
               </div>
             </div>
